@@ -1,0 +1,22 @@
+{
+  "a": {
+    "body": "function (obj) {return Number(obj.value) > 0}",
+    "passedRuleID": "b",
+    "failedRuleID": "a"
+  },
+  "b": {
+    "body": "function (obj) {return Number(obj.value) > 0}",
+    "passedRuleID": "d",
+    "failedRuleID": "a"
+  },
+  "c": {
+    "body": "",
+    "passedRuleID": "b",
+    "failedRuleID": ""
+  },
+  "d": {
+    "body": "function (obj) {return Number(obj.value) < 0}",
+    "passedRuleID": null,
+    "failedRuleID": "a"
+  }
+}
