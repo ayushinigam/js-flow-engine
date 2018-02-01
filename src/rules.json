@@ -1,22 +1,26 @@
-{
-  "a": {
+[
+  {
     "body": "function (obj) {return Number(obj.value) > 0}",
     "passedRuleID": "b",
-    "failedRuleID": "a"
+    "failedRuleID": "a",
+    "id": "a"
   },
-  "b": {
+  {
     "body": "function (obj) {return Number(obj.value) > 0}",
     "passedRuleID": "d",
-    "failedRuleID": "a"
+    "failedRuleID": "a",
+    "id": "b"
   },
-  "c": {
+  {
     "body": "",
     "passedRuleID": "b",
-    "failedRuleID": ""
+    "failedRuleID": "",
+    "id": "c"
   },
-  "d": {
+  {
     "body": "function (obj) {return Number(obj.value) < 0}",
     "passedRuleID": null,
-    "failedRuleID": "a"
+    "failedRuleID": "a",
+    "id": "d"
   }
-}
+]
