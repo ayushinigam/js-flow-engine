@@ -3,6 +3,7 @@ import './App.css';
 import rules from './rules.json';
 import makeSafeEval from 'cross-safe-eval';
 import Rule from './components/Rule.component';
+import reset from '../node_modules/reset-css/reset.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 const safeEval = makeSafeEval(); // uses eval without access to globals, scope, closure and "this"
@@ -10,9 +11,10 @@ const safeEval = makeSafeEval(); // uses eval without access to globals, scope, 
 class App extends Component {
   state = {
     rules: rules,
-    incomingData: '{"value": 2}'
+    incomingData: '{"value": 2}',
+    statuses: {}
   }
-  currentCallStack = []
+  currentCallStack = {}
   setIncomingData = (e) => this.setState({incomingData: e.target.value});
 
   processRule = (currentRuleID) => {
@@ -27,36 +29,44 @@ class App extends Component {
 
   runRules = (currentRuleID) => {
     try {
-      if(this.currentCallStack.includes(currentRuleID)) {
-        throw `Infinite loop at RuleID ${currentRuleID}\nCallstack: ${[...this.currentCallStack, currentRuleID].join(' --> ')}`;
+      if(this.currentCallStack.hasOwnProperty(currentRuleID)) {
+        const callStack = [...Object.keys(this.currentCallStack), currentRuleID].join(' --> ');
+        throw `Infinite loop at RuleID ${currentRuleID}\nCallstack: ${callStack}`;
       }
       const {ruleOutput, nextRuleID} = this.processRule(currentRuleID);
       if(nextRuleID && nextRuleID !== null) { //
-        this.currentCallStack.push(currentRuleID);
+        this.currentCallStack[currentRuleID] = ruleOutput;
         this.runRules(nextRuleID);
       }
       else { // last rule
-        this.currentCallStack = [];
         toast.success('✅ End of the flow!');
       }
     }
     catch(e) {
-      this.currentCallStack = [];
       toast.error(`⚠️ ERROR EXECUTING RULE: "${currentRuleID}". ERROR: ${e}`, {autoClose: 7500});
     }
   }
 
   runHandler = () => {
-    toast.success('✅ Flow Started!');
-    this.runRules(this.state.rules[0].id);
+    this.currentCallStack = {};
+    this.setState({statuses: this.currentCallStack}, () => { //clear previous state
+      toast.dismiss(); //dismiss previous toasts
+      toast.success('✅ Flow Started!');
+      this.runRules(this.state.rules[0].id);
+      this.setState({statuses: this.currentCallStack})
+    });
+
   }
 
   render() {
+    console.log('this.currentCallStack',this.state.statuses);
     return (
-      <div className="">
-        {this.state.rules.map((ruleDetails)=>(<Rule key={ruleDetails.id} {...ruleDetails} />))}
-        incoming data: <input onChange={this.setIncomingData} value={this.state.incomingData} />
-        <button onClick={this.runHandler}>run rules</button>
+      <div className="app">
+      incoming data: <input onChange={this.setIncomingData} value={this.state.incomingData} />
+      <button onClick={this.runHandler}>run rules</button>
+        {this.state.rules.map((ruleDetails) => (
+          <Rule key={ruleDetails.id} status={this.state.statuses[ruleDetails.id]} {...ruleDetails} />
+        ))}
         <ToastContainer />
       </div>
     );

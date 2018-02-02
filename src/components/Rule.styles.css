@@ -1,0 +1,19 @@
+.rule-header {
+  background-color: #858685;
+  color: white; }
+  .rule-header .rule-id {
+    background-color: #a5a5a5; }
+  .rule-header .rule-id, .rule-header .rule-title {
+    padding: 10px;
+    display: inline-block; }
+  .rule-header.rule-success {
+    background-color: #76A900; }
+    .rule-header.rule-success .rule-id {
+      background-color: #99BF3F; }
+  .rule-header.rule-failed {
+    background-color: #E20913; }
+    .rule-header.rule-failed .rule-id {
+      background-color: #EA444E; }
+
+.rule .rule-collapsed {
+  display: none; }
