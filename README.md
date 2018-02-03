@@ -26,6 +26,13 @@ To build the app:
 3.  Run the build using `npm run build:serve` or `yarn build:serve`
 4. The build folder is `./build`
 
+
+# Testing
+
+`npm test` or `yarn test` will run tests and generate coverage report.
+
+Note: For the first time `npm install` might take some time as it will install node-sass bindings.
+
 # Coverage
 <div style="text-align:center">
 <img src="/coverage.png" style="width: 80%;display:inline-block;" hspace="20">
