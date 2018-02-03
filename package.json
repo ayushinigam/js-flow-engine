@@ -13,6 +13,7 @@
   "scripts": {
     "start-js": "react-scripts start",
     "build:serve": "serve -s build",
+    "deploy": "gh-pages -d build",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
@@ -24,6 +25,7 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
+  "homepage": "https://rgabs.github.io/js-flow-engine",
   "jest": {
     "transform": {
       "^.+\\.js$": "babel-jest"
@@ -44,6 +46,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-react-16-adapter-setup": "^0.1.0",
+    "gh-pages": "^1.1.0",
     "jest": "^21.2.1",
     "jest-enzyme": "^4.0.1",
     "node-sass-chokidar": "^0.0.3",
