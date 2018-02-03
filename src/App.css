@@ -1,7 +1,14 @@
 .app {
   width: 50vw;
   min-width: 350px;
-  margin: auto; }
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  padding: 20px 0; }
+
+body {
+  background-color: #DBDBDB;
+  min-height: 100vh; }
 
 * {
   box-sizing: border-box; }

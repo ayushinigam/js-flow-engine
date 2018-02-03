@@ -1,0 +1,59 @@
+@import "../../variables.scss";
+
+.rule {
+  &-container {
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+    color: $LIGHT_FONT_COLOR;
+  }
+  &-header {
+    background-color: $PRIMARY_HEADER_DEFAULT;
+    color: $LIGHT_FONT_COLOR;
+    cursor: pointer;
+    .rule-id {
+      background-color: $SECONDARY_HEADER_DEFAULT;
+    }
+    .rule-id, .rule-title  {
+      padding: 15px 20px;
+      transition: background-color 0.5s;
+      display: inline-block;
+      font-size: $FONT_LARGE;
+    }
+    &.rule-success {
+      .rule-id {
+        background-color: $SECONDARY_SUCCESS_COLOR;
+      }
+      background-color: $PRIMARY_SUCCESS_COLOR;
+    }
+    &.rule-failed {
+      .rule-id {
+        background-color: $SECONDARY_FAILURE_COLOR;
+      }
+      background-color: $PRIMARY_FAILURE_COLOR;
+    }
+  }
+  &-content {
+    background-color: $RULE_BACKGROUND;
+    padding: 10px;
+    max-height: 800px;
+    transition: all 0.5s;
+    .rule-body {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .next-rules-container {
+      overflow: hidden;
+    }
+    .next-rule {
+      width: 50%;
+      float: left;
+    }
+  }
+  &-collapsed {
+    // display: none;
+    max-height: 0;
+    padding: 0;
+  }
+
+}

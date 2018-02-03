@@ -1,0 +1,43 @@
+.rule-container {
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
+  color: #FEFFFD; }
+
+.rule-header {
+  background-color: #686968;
+  color: #FEFFFD;
+  cursor: pointer; }
+  .rule-header .rule-id {
+    background-color: #a5a5a5; }
+  .rule-header .rule-id, .rule-header .rule-title {
+    padding: 15px 20px;
+    transition: background-color 0.5s;
+    display: inline-block;
+    font-size: 16px; }
+  .rule-header.rule-success {
+    background-color: #76A900; }
+    .rule-header.rule-success .rule-id {
+      background-color: #99BF3F; }
+  .rule-header.rule-failed {
+    background-color: #E20913; }
+    .rule-header.rule-failed .rule-id {
+      background-color: #EA444E; }
+
+.rule-content {
+  background-color: #929292;
+  padding: 10px;
+  max-height: 800px;
+  transition: all 0.5s; }
+  .rule-content .rule-body {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .rule-content .next-rules-container {
+    overflow: hidden; }
+  .rule-content .next-rule {
+    width: 50%;
+    float: left; }
+
+.rule-collapsed {
+  max-height: 0;
+  padding: 0; }

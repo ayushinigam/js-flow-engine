@@ -3,27 +3,52 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "continuation-local-storage": "^3.2.1",
     "cross-safe-eval": "^0.0.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-highlight": "^0.10.0",
     "react-scripts": "1.1.0",
     "react-toastify": "^3.3.1",
     "reset-css": "^2.2.1"
   },
   "scripts": {
     "start-js": "react-scripts start",
+    "build:serve": "serve -s build",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest --coverage",
+    "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html",
+    "test:watch": "jest --watchAll",
+    "test:update": "jest --updateSnapshot",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/__mocks__/custom-file-loader.js"
+    },
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": [
+      "enzyme-react-16-adapter-setup"
+    ]
+  },
   "devDependencies": {
+    "babel-jest": "^22.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
+    "jest": "^21.2.1",
+    "jest-enzyme": "^4.0.1",
     "node-sass-chokidar": "^0.0.3",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "react-test-renderer": "^16.2.0",
+    "serve": "^6.4.9"
   }
 }

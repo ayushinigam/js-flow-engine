@@ -1,7 +1,16 @@
+@import "./variables.scss";
+
 .app {
   width: 50vw;
   min-width: 350px;
   margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: $APP_FONT_SIZE;
+  padding: 20px 0;
+}
+body {
+  background-color: $DEFAULT_BG;
+  min-height: 100vh;
 }
 
 * {

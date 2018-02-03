@@ -1,26 +1,30 @@
 [
   {
-    "body": "function (obj) {return Number(obj.value) > 0}",
-    "passedRuleID": "b",
-    "failedRuleID": "a",
-    "id": "a"
+    "body": "function (obj) {return !!obj}",
+    "passedRuleID": "2",
+    "failedRuleID": "4",
+    "id": "1",
+    "title": "Should be truthy"
   },
   {
-    "body": "function (obj) {return Number(obj.value) > 0}",
-    "passedRuleID": "d",
-    "failedRuleID": "a",
-    "id": "b"
+    "body": "function (obj) {return obj.hasOwnProperty('value')}",
+    "passedRuleID": "3",
+    "failedRuleID": "4",
+    "id": "2",
+    "title": "Should have a key called \"value\""
   },
   {
-    "body": "",
-    "passedRuleID": "b",
-    "failedRuleID": "",
-    "id": "c"
+    "body": "function (obj) {return typeof obj.value === 'number'}",
+    "passedRuleID": "4",
+    "failedRuleID": null,
+    "id": "3",
+    "title": "obj.value should be a number"
   },
   {
-    "body": "function (obj) {return Number(obj.value) < 0}",
+    "body": "function (obj) {return obj.value > 0}",
     "passedRuleID": null,
-    "failedRuleID": "a",
-    "id": "d"
+    "failedRuleID": null,
+    "id": "4",
+    "title": "obj.value should be greater than 0"
   }
 ]

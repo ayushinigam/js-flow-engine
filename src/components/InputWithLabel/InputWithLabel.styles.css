@@ -1,0 +1,12 @@
+.input-with-label {
+  display: block;
+  padding: 10px; }
+  .input-with-label input {
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #DADBDA;
+    color: black;
+    width: 100%; }
+  .input-with-label p {
+    padding-bottom: 10px; }

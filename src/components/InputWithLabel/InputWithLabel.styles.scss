@@ -1,0 +1,18 @@
+@import "../../variables.scss";
+
+
+.input-with-label {
+  display: block;
+  padding: 10px;
+  input {
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #DADBDA;
+    color: black;
+    width: 100%;
+  }
+  p {
+    padding-bottom: 10px;
+  }
+}

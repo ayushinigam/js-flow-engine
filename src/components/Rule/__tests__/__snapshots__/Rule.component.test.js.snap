@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rule component Rule: renders correctly 1`] = `
+<div
+  className="rule-container"
+>
+  <div
+    className="rule-header "
+    onClick={[Function]}
+  >
+    <span
+      className="rule-id"
+    />
+    <p
+      className="rule-title"
+    >
+      No Title
+    </p>
+  </div>
+  <div
+    className="rule-content rule-collapsed"
+  >
+    <div
+      className="input-with-label undefined"
+    >
+      <p>
+        Rule body
+      </p>
+      <input
+        className="rule-body"
+        disabled={true}
+        value="undefined"
+      />
+    </div>
+    <div
+      className="next-rules-container"
+    >
+      <div
+        className="input-with-label next-rule"
+      >
+        <p>
+          Next rule-id if passed
+        </p>
+        <input
+          className={undefined}
+          disabled={true}
+          value="undefined"
+        />
+      </div>
+      <div
+        className="input-with-label next-rule"
+      >
+        <p>
+          Next rule-id if failed
+        </p>
+        <input
+          className={undefined}
+          disabled={true}
+          value="undefined"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

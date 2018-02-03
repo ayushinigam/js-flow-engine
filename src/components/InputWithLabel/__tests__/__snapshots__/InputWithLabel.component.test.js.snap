@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputWithLabel component InputWithLabel: renders correctly 1`] = `
+<div
+  className="input-with-label undefined"
+>
+  <p />
+  <input
+    className={undefined}
+    value="undefined"
+  />
+</div>
+`;

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import rules from './rules.json';
 import makeSafeEval from 'cross-safe-eval';
-import Rule from './components/Rule.component';
-import reset from '../node_modules/reset-css/reset.css';
+import Rule from './components/Rule/Rule.component';
+import '../node_modules/reset-css/reset.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 const safeEval = makeSafeEval(); // uses eval without access to globals, scope, closure and "this"
@@ -11,18 +11,17 @@ const safeEval = makeSafeEval(); // uses eval without access to globals, scope, 
 class App extends Component {
   state = {
     rules: rules,
-    incomingData: '{"value": 2}',
+    incomingData: '{"value": -1}',
     statuses: {}
   }
   currentCallStack = {}
   setIncomingData = (e) => this.setState({incomingData: e.target.value});
 
   processRule = (currentRuleID) => {
-    const currentRule = rules.filter((ruleDetails) => ruleDetails.id === currentRuleID)[0];
+    const currentRule = this.state.rules.filter((ruleDetails) => ruleDetails.id === currentRuleID)[0];
     const ruleLogic = safeEval(`(${currentRule.body})`);
     const incomingData = JSON.parse(this.state.incomingData);
     const ruleOutput = ruleLogic(incomingData);
-    // toast.success(`Rule ${currentRuleID} finished, \nOutput is: ${ruleOutput} \nNextRule: ${nextRuleID}`)
     const nextRuleID =  !!ruleOutput ? currentRule.passedRuleID : currentRule.failedRuleID;
     return {ruleOutput, nextRuleID};
   }
@@ -31,11 +30,11 @@ class App extends Component {
     try {
       if(this.currentCallStack.hasOwnProperty(currentRuleID)) {
         const callStack = [...Object.keys(this.currentCallStack), currentRuleID].join(' --> ');
-        throw `Infinite loop at RuleID ${currentRuleID}\nCallstack: ${callStack}`;
+        throw new Error(`Infinite loop at RuleID ${currentRuleID} Callstack: ${callStack}`);
       }
       const {ruleOutput, nextRuleID} = this.processRule(currentRuleID);
+      this.currentCallStack[currentRuleID] = ruleOutput;
       if(nextRuleID && nextRuleID !== null) { //
-        this.currentCallStack[currentRuleID] = ruleOutput;
         this.runRules(nextRuleID);
       }
       else { // last rule
@@ -51,7 +50,6 @@ class App extends Component {
     this.currentCallStack = {};
     this.setState({statuses: this.currentCallStack}, () => { //clear previous state
       toast.dismiss(); //dismiss previous toasts
-      toast.success('✅ Flow Started!');
       this.runRules(this.state.rules[0].id);
       this.setState({statuses: this.currentCallStack})
     });
@@ -59,10 +57,9 @@ class App extends Component {
   }
 
   render() {
-    console.log('this.currentCallStack',this.state.statuses);
     return (
       <div className="app">
-      incoming data: <input onChange={this.setIncomingData} value={this.state.incomingData} />
+      Incoming data: <input onChange={this.setIncomingData} value={this.state.incomingData} />
       <button onClick={this.runHandler}>run rules</button>
         {this.state.rules.map((ruleDetails) => (
           <Rule key={ruleDetails.id} status={this.state.statuses[ruleDetails.id]} {...ruleDetails} />

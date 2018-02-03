@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component App: renders correctly 1`] = `
+<div
+  className="app"
+>
+  Incoming data: 
+  <input
+    onChange={[Function]}
+    value="{\\"value\\": -1}"
+  />
+  <button
+    onClick={[Function]}
+  >
+    run rules
+  </button>
+  <div
+    className="rule-container"
+  >
+    <div
+      className="rule-header "
+      onClick={[Function]}
+    >
+      <span
+        className="rule-id"
+      >
+        1
+      </span>
+      <p
+        className="rule-title"
+      >
+        Should be truthy
+      </p>
+    </div>
+    <div
+      className="rule-content rule-collapsed"
+    >
+      <div
+        className="input-with-label undefined"
+      >
+        <p>
+          Rule body
+        </p>
+        <input
+          className="rule-body"
+          disabled={true}
+          value="function (obj) {return !!obj}"
+        />
+      </div>
+      <div
+        className="next-rules-container"
+      >
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if passed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="2"
+          />
+        </div>
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if failed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="4"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rule-container"
+  >
+    <div
+      className="rule-header "
+      onClick={[Function]}
+    >
+      <span
+        className="rule-id"
+      >
+        2
+      </span>
+      <p
+        className="rule-title"
+      >
+        Should have a key called "value"
+      </p>
+    </div>
+    <div
+      className="rule-content rule-collapsed"
+    >
+      <div
+        className="input-with-label undefined"
+      >
+        <p>
+          Rule body
+        </p>
+        <input
+          className="rule-body"
+          disabled={true}
+          value="function (obj) {return obj.hasOwnProperty('value')}"
+        />
+      </div>
+      <div
+        className="next-rules-container"
+      >
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if passed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="3"
+          />
+        </div>
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if failed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="4"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rule-container"
+  >
+    <div
+      className="rule-header "
+      onClick={[Function]}
+    >
+      <span
+        className="rule-id"
+      >
+        3
+      </span>
+      <p
+        className="rule-title"
+      >
+        obj.value should be a number
+      </p>
+    </div>
+    <div
+      className="rule-content rule-collapsed"
+    >
+      <div
+        className="input-with-label undefined"
+      >
+        <p>
+          Rule body
+        </p>
+        <input
+          className="rule-body"
+          disabled={true}
+          value="function (obj) {return typeof obj.value === 'number'}"
+        />
+      </div>
+      <div
+        className="next-rules-container"
+      >
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if passed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="4"
+          />
+        </div>
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if failed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="null"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rule-container"
+  >
+    <div
+      className="rule-header "
+      onClick={[Function]}
+    >
+      <span
+        className="rule-id"
+      >
+        4
+      </span>
+      <p
+        className="rule-title"
+      >
+        obj.value should be greater than 0
+      </p>
+    </div>
+    <div
+      className="rule-content rule-collapsed"
+    >
+      <div
+        className="input-with-label undefined"
+      >
+        <p>
+          Rule body
+        </p>
+        <input
+          className="rule-body"
+          disabled={true}
+          value="function (obj) {return obj.value > 0}"
+        />
+      </div>
+      <div
+        className="next-rules-container"
+      >
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if passed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="null"
+          />
+        </div>
+        <div
+          className="input-with-label next-rule"
+        >
+          <p>
+            Next rule-id if failed
+          </p>
+          <input
+            className={undefined}
+            disabled={true}
+            value="null"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
