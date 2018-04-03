@@ -19,7 +19,8 @@ class App extends Component {
 
   processRule = (currentRuleID) => {
     const currentRule = this.state.rules.filter((ruleDetails) => ruleDetails.id === currentRuleID)[0];
-    const ruleLogic = safeEval(`(${currentRule.body})`);
+    // const ruleLogic = safeEval(`(${currentRule.body})`);
+    const ruleLogic = new Function(`return (${currentRule.body})(arguments[0])`);
     const incomingData = JSON.parse(this.state.incomingData);
     const ruleOutput = ruleLogic(incomingData);
     const nextRuleID =  !!ruleOutput ? currentRule.passedRuleID : currentRule.failedRuleID;
