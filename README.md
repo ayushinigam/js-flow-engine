@@ -3,7 +3,7 @@
 A flow engine built using ReactJS.
 
 <div style="text-align:center">
-<img src="/app.png" style="width: 80%;display:inline-block;" hspace="20">
+<img src="/app.png" style="width: 80%;display:inline-block;" hspace="20" />
 </div>
 
 # Features
@@ -35,5 +35,5 @@ Note: For the first time `npm install` might take some time as it will install n
 
 # Coverage
 <div style="text-align:center">
-<img src="/coverage.png" style="width: 80%;display:inline-block;" hspace="20">
+<img src="/coverage.png" style="width: 80%;display:inline-block;" hspace="20" />
 </div>
